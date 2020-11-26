@@ -235,7 +235,7 @@ class Agent:
         found = None
         node_expand = None
         node_state = None
-        heurantiga = 0
+        
         
         # O valor da heurística vem da função dist, que recebe o X e Y do node atual e do goal
         heuristica = dist(self.state[0], self.state[1], self.goalNodePos[0], self.goalNodePos[1])
@@ -255,6 +255,7 @@ class Agent:
         # Aqui irá se verificar todos os nodes fronteira e verificar qual deles tem o custo total (Pathcost+Heurística)
         #   menor
         while not end:
+            heurantiga = 0
             minimum = None
             for node in self.frontier_nodes.getQueue():
                 # Adicionar o primeiro node sempre, para ter algo a comparar
