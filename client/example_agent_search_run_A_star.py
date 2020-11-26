@@ -235,7 +235,8 @@ class Agent:
         found = None
         node_expand = None
         node_state = None
-
+        heurantiga = 0
+        
         # O valor da heurística vem da função dist, que recebe o X e Y do node atual e do goal
         heuristica = dist(self.state[0], self.state[1], self.goalNodePos[0], self.goalNodePos[1])
 
@@ -260,12 +261,20 @@ class Agent:
                 if minimum is None:
                     node_state = node.getState()
                     node_expand = node
+                    heurantiga = node.getHeuristica()
                     minimum = node.getCost()
                 # Se custo toal for menor adiciona
                 elif node.getCost() < minimum:
                     node_state = node.getState()
                     node_expand = node
+                    heurantiga = node.getHeuristica()
                     minimum = node.getCost()
+                elif node.getCost() == minimum and node.getHeuristica() < heurantiga:
+                    node_state = node.getState()
+                    node_expand = node
+                    heurantiga = node.getHeuristica()
+                    minimum = node.getCost()
+
 
             # Print de ajuda visual para perceber qual é o custo menor selecionado
             #print("min", minimum)
