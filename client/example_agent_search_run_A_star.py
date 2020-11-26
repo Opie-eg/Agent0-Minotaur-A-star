@@ -235,8 +235,7 @@ class Agent:
         found = None
         node_expand = None
         node_state = None
-        
-        
+
         # O valor da heurística vem da função dist, que recebe o X e Y do node atual e do goal
         heuristica = dist(self.state[0], self.state[1], self.goalNodePos[0], self.goalNodePos[1])
 
@@ -276,8 +275,6 @@ class Agent:
                     node_expand = node
                     heurantiga = node.getHeuristica()
                     minimum = node.getCost()
-
-
             # Print de ajuda visual para perceber qual é o custo menor selecionado
             #print("min", minimum)
 
@@ -299,12 +296,12 @@ class Agent:
                 print("Node's position (expand):", self.state)
                 # Insere na lista de nodes visitadas só depois de confirmar se não existe obstáculo
                 self.visited_nodes.insert(node_expand)
-                list_visited = []
-                    for n in self.visited_nodes.getQueue():
-                        list_visited.append(n.getState())
                 # Tenta expandir para todas direções a node
                 for dir in ["north","east","west","south"]:
                     new_node = self.getNode(node_expand, dir,self.goalNodePos)
+                    list_visited = []
+                    for n in self.visited_nodes.getQueue():
+                        list_visited.append(n.getState())
                     # Verificar que não é repetido (node já visitada)
                     if new_node.getState() not in list_visited:
                         # Verificar que não está na lista de obstacles
@@ -476,7 +473,6 @@ def dist(x1, y1, x2, y2):
     # Irá devolver distância entre 2 pontos, sendo utilizado para verificar distância entre node atual e goal
     result = abs(x2 - x1)+ abs(y2 - y1)
     return result
-
 
 
 main()
