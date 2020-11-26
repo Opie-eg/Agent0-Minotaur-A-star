@@ -270,6 +270,7 @@ class Agent:
                     node_expand = node
                     heurantiga = node.getHeuristica()
                     minimum = node.getCost()
+                # Caso o custo total do novo node seja igual ao minimum é usado então o que tiver menor heuristica
                 elif node.getCost() == minimum and node.getHeuristica() < heurantiga:
                     node_state = node.getState()
                     node_expand = node
