@@ -250,7 +250,6 @@ class Agent:
         # test
         self.printNodesPoderoso("Frontier", self.frontier_nodes, i)
         self.printNodesPoderoso("Visitied", self.visited_nodes, i)
-        end = False
 
         # Aqui irá se verificar todos os nodes fronteira e verificar qual deles tem o custo total (Pathcost+Heurística)
         #   menor
