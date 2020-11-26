@@ -1,8 +1,8 @@
 # Agent0_minotauro-A*
-##Grupo:
-Bruno Brum
-Diogo Carreiro
-Tiago Filipe
+## Feito Por:
+-Bruno Brum
+-Diogo Carreiro
+-Tiago Filipe
 
 ## Sobre o projeto:
 O projeto Agent0_minotauro permite explorar a interação entre um agente e um ambiente.
