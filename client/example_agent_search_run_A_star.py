@@ -289,12 +289,12 @@ class Agent:
                 print("Node's position (expand):", self.state)
                 # Insere na lista de nodes visitadas só depois de confirmar se não existe obstáculo
                 self.visited_nodes.insert(node_expand)
+                list_visited = []
+                    for n in self.visited_nodes.getQueue():
+                        list_visited.append(n.getState())
                 # Tenta expandir para todas direções a node
                 for dir in ["north","east","west","south"]:
                     new_node = self.getNode(node_expand, dir,self.goalNodePos)
-                    list_visited = []
-                    for n in self.visited_nodes.getQueue():
-                        list_visited.append(n.getState())
                     # Verificar que não é repetido (node já visitada)
                     if new_node.getState() not in list_visited:
                         # Verificar que não está na lista de obstacles
