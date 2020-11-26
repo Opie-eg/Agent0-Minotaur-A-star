@@ -1,4 +1,4 @@
-# Agent0_minotauro-A*
+# Agent0-minotauro-A*
 ## Feito Por:
 - Bruno Brum
 - Diogo Carreiro
