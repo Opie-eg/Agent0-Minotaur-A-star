@@ -7,9 +7,12 @@
 ## Sobre o projeto:
 O projeto Agent0_minotauro permite explorar a interação entre um agente e um ambiente.
 O ambiente consiste num tabuleiro retangular de casas quadradas, que podem conter obstáculos, perigos ou objetivos. Para se movimentar neste ambiente, o agente pode deslocar-se em frente ou mudar de direção. O agente, dependendo da sua capacidade, pode também inspecionar o tabuleiro e as suas casas.
-O agente pode usar diversos algoritmos para chegar ao seu objetivo. Para os visualizar, é possível marcar as casas com várias cores.
+O agente pode usar diversos algoritmos para chegar ao seu objetivo, neste caso usamos o algoritmo A*. Para os visualizar, é possível marcar as casas com várias cores.
   
 A interação entre o agente e o ambiente é comandada através de um cliente e acontece no servidor.
+
+## Exemplo de execução do codigo:
+-https://www.youtube.com/watch?v=EZtsjS9ZL4A&feature=youtu.be
 
 ## Como instalar
 Para correr o servidor e o cliente, o utilizador deve ter instalada a versão 3 do Python. Além do Python 3, o cliente necessita da biblioteca Pillow
