@@ -12,7 +12,7 @@ O agente pode usar diversos algoritmos para chegar ao seu objetivo, neste caso u
 A interação entre o agente e o ambiente é comandada através de um cliente e acontece no servidor.
 
 ## Exemplo de execução do codigo:
--https://www.youtube.com/watch?v=EZtsjS9ZL4A&feature=youtu.be
+- https://www.youtube.com/watch?v=EZtsjS9ZL4A&feature=youtu.be
 
 ## Como instalar
 Para correr o servidor e o cliente, o utilizador deve ter instalada a versão 3 do Python. Além do Python 3, o cliente necessita da biblioteca Pillow
