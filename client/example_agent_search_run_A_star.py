@@ -8,6 +8,7 @@ import copy
 
 # AUXILIAR
 
+FRONTIER_COLOR = "red3"
 class Queue:
     def __init__(self):
          self.queue_data = []
@@ -195,6 +196,10 @@ class Agent:
             n = n.getParent()
         n_list.insert(0,[self.getSelfPosition(),0])
         print("Final Path", n_list)
+    # Funcao que pinta o pensamento do agente
+    def mark_frontier(self, node):
+
+        self.c.execute("mark", str(node.getState())[1:-1].replace(" ", "") + "_" + FRONTIER_COLOR)
 
     # Adicionamos 2 parâmetros:
 
@@ -204,6 +209,13 @@ class Agent:
     # "position" que será inicializada a None na primeira vez que o run corre, mas caso haja uma colisão
     #  com um obstáculo invisível esta position a posição atual antes de bater nesse obstáculo e a nova posição inicial
     def run(self, invisible_obstacles, position=None):
+        #limpa os pensamentos anteriores
+        """
+        for node in self.frontier_nodes.getQueue():
+            self.c.execute("unmark", str(node.getState())[1:-1].replace(" ", ""))
+        for node in self.visited_nodes.getQueue():
+            self.c.execute("unmark", str(node.getState())[1:-1].replace(" ", ""))
+        """
         # Get the position of the Goal
         self.frontier_nodes.clear()
         self.visited_nodes.clear()
@@ -247,6 +259,7 @@ class Agent:
             # Verificar que não está na lista de obstacles, ou seja se a posição na lista obst é 0, ou não 1
             if obst[self.getNode(root, dir,self.goalNodePos).getState()[0]][self.getNode(root, dir,self.goalNodePos).getState()[1]] == 0:
                 self.frontier_nodes.insert(self.getNode(root,dir,self.goalNodePos))
+                #self.mark_frontier(self.getNode(root,dir,self.goalNodePos))# pintar os node
         # test
         self.printNodesPoderoso("Frontier", self.frontier_nodes, i)
         self.printNodesPoderoso("Visitied", self.visited_nodes, i)
@@ -308,6 +321,7 @@ class Agent:
                         if obst[new_node.getState()[0]][new_node.getState()[1]] == 0:
                             # Insere na fronteira as nodes que poderão ser exploradas(que não são obstáculos visíveis)
                             self.frontier_nodes.insert(new_node)
+                            #self.mark_frontier(new_node) # pintar os node
 
                 # Código para mostrar todas possíveis soluções(não tem em conta obstáculos invisíveis)
                 # Torna a procura mais demorada, visto que tem que percorrer mais uma vez a lista e dar print das
@@ -473,6 +487,5 @@ def dist(x1, y1, x2, y2):
     # Irá devolver distância entre 2 pontos, sendo utilizado para verificar distância entre node atual e goal
     result = abs(x2 - x1)+ abs(y2 - y1)
     return result
-
 
 main()
